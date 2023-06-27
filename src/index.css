@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Lobster+Two&family=Roboto:wght@100;400&family=Shantell+Sans:wght@300&family=Tilt+Neon&display=swap');
+
+  @layer base {
+    html {
+      font-family: Tilt Neon;
+    }
+  }
+
+
+  .custom-loader {
+    width:50px;
+    height:50px;
+    display: grid;
+    background:
+      linear-gradient(90deg,#766DF4 2px,#0000 0 calc(100% - 2px),#766DF4 0) center/100% 14px,
+      linear-gradient(0deg, #766DF4 2px,#0000 0 calc(100% - 2px),#766DF4 0) center/14px 100%,
+      linear-gradient(#766DF4 0 0) center/100% 2px,
+      linear-gradient(#766DF4 0 0) center/2px 100%;
+    background-repeat: no-repeat;
+    animation: h6 4s infinite linear;
+  }
+  
+  .custom-loader::before,
+  .custom-loader::after {
+    content: "";
+    grid-area: 1/1;
+    background:inherit;
+    transform-origin: inherit;
+    animation: inherit;
+  }
+  .custom-loader::after {
+    animation-duration: 2s;
+  }
+  
+  @keyframes h6{
+    100% {transform:rotate(1turn)}
+  }
+
+
+  /* Custom Scrollbars */
+*::-webkit-scrollbar {
+  width: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #3b3939;
+}
+
+.App{
+  background:url("./assets/loginbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
