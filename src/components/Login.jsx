@@ -57,7 +57,7 @@ const verifyOtpHandler = (event) =>{
               })
 
               
-              }  className='self-stretch bg-transparent text-white placeholder:text-white  border-b focus:outline-none' />
+              }  className='self-stretch bg-transparent text-white placeholder:text-white  border-b focus:outline-none'  />
               <button className='bg-white  rounded-sm hover:bg-slate-200 duration-100 py-1 self-stretch' onClick={verifyOtpHandler}>Verify Otp</button>
 
             </motion.div>
@@ -86,7 +86,7 @@ const verifyOtpHandler = (event) =>{
                       }
                     } )
                   
-                  }} name='firstName' value={signUpData.firstName} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-xl'/>
+                  }} name='firstName' value={signUpData.firstName} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-lg'/>
                   <input type="text"  required placeholder='enter your lastName' onChange={(event)=>{
                     setSignUpData((prev)=>{
 
@@ -96,7 +96,7 @@ const verifyOtpHandler = (event) =>{
                       }
                     } )
                   
-                  }} name='lastName'  value={signUpData.lastName} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-xl'/>
+                  }} name='lastName'  value={signUpData.lastName} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-lg'/>
 
 
                   <input type="email"  placeholder='enter your email' onChange={(event)=>{
@@ -108,7 +108,7 @@ const verifyOtpHandler = (event) =>{
                       }
                     } )
                   
-                  }} name='email' required value={signUpData.email} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-xl'/>
+                  }} name='email' required value={signUpData.email} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-lg'/>
 
                   <input type="password"  placeholder='enter your password' onChange={(event)=>{
                     setSignUpData((prev)=>{
@@ -119,7 +119,7 @@ const verifyOtpHandler = (event) =>{
                       }
                     } )
                 
-                  }} name='password' required value={signUpData.password} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-xl'/>
+                  }} name='password' required value={signUpData.password} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-lg'/>
 
                   <button className='bg-white  rounded-sm hover:bg-slate-200 duration-100 py-1 self-stretch text-xl' onClick={signUpHandler}>Sign Up </button>
 
@@ -154,7 +154,7 @@ const verifyOtpHandler = (event) =>{
                               }
                             } )
                           
-                          }} name='email' required value={loginData.email} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none appearance-none focus:bg-transparent focus-within:bg-transparent  text-xl'/>
+                          }} name='email' required value={loginData.email} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none appearance-none focus:bg-transparent focus-within:bg-transparent  text-lg'/>
 
                           <input type="password"  placeholder='enter your password' onChange={(event)=>{
                             setLoginData((prev)=>{
@@ -165,7 +165,7 @@ const verifyOtpHandler = (event) =>{
                               }
                             } )
                         
-                          }} name='password' required value={loginData.password} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-xl'/>
+                          }} name='password' required value={loginData.password} className='bg-transparent text-white placeholder:text-white  border-b focus:outline-none text-lg'/>
 
                           <button className='bg-white  rounded-sm hover:bg-slate-200 duration-100 py-1 self-stretch text-xl'>Log In </button>
 

@@ -15,7 +15,7 @@ import {MdOutlineAddToPhotos} from "react-icons/md"
 import { createChat } from '../services/operations/chatApi';
 import { motion  , AnimatePresence} from 'framer-motion';
 import {BsEmojiWinkFill} from "react-icons/bs"
-
+import {BsFillArrowDownCircleFill , BsFillArrowUpCircleFill} from "react-icons/bs"
 import io from "socket.io-client"
 
 const ENDPOINT = "https://noobchatbackend.onrender.com"
@@ -28,7 +28,7 @@ const Home = () => {
   const navigate = useNavigate();
   const elementRef = useRef(null);
   const [showEmoji , setShowEmoji] = useState(false);
-
+  
   const {user , token , currentChatData } = useSelector((state)=>state.auth);
 
   
@@ -170,7 +170,8 @@ const Home = () => {
     }
 
 
-    
+    //add to github
+    const [showYourChats , setShowYourChats] = useState(false);
 
     
   return (
@@ -206,7 +207,7 @@ onBlur={()=>{
                      
 
 
-                     <motion.div className="absolute  top-7 lg:top-9 left-0 right-0 min-h-min max-h-56 h-max bg-neutral-300  overflow-y-scroll scroll-smooth  rounded-[5px] scrollbar-thin scrollbar-transparent shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)]  overflow-x-hidden z-10" initial={{x:-300 , opacity:0}} animate={{x:0,opacity:1}} >
+                     <motion.div className="absolute   lg:top-12 md:top-12 sm:top-12 top-12 left-0 right-0 min-h-min max-h-56 h-max bg-neutral-300  overflow-y-scroll scroll-smooth  rounded-[5px] scrollbar-thin scrollbar-transparent shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)]  overflow-x-hidden z-10" initial={{x:-300 , opacity:0}} animate={{x:0,opacity:1}} >
                           {
 
 
@@ -250,22 +251,33 @@ onBlur={()=>{
                     </div>
 
                     <div className='flex flex-col gap-2 mt-2 lg:max-h-fit md:max-h-fit sm:max-h-fit max-h-[150px] overflow-y-auto'>
-                          <span className='text-blue-100'>Your Chats</span>
+                          <span className='text-blue-100 flex flex-row items-center gap-2 cursor-pointer' onClick={()=>setShowYourChats(!showYourChats)} >Your Chats 
+
+                            {
+                              showYourChats ? (<BsFillArrowUpCircleFill/>) : (<BsFillArrowDownCircleFill/>)
+                            }
+                           </span>
+
+                          
                           {
-                            chats.map((chat,index)=>{
+                            showYourChats && chats.map((chat,index)=>{
 
                               return(
                                 
                                 
                                 
-                                <div key={index} className='cursor-pointer' onClick={()=>{chatHandler(chat)}}>
+                                <motion.div key={index} className='cursor-pointer' onClick={()=>{chatHandler(chat)}} initial={{y:-300 , opacity:0}} animate={{y:0,opacity:1}} >
 
                                   <ChatBar chat={chat}  setChats={setChats} key={index} currentChat={currentChat}/>
-                                  </div>  
+                                  </motion.div>  
 
                                   ) 
                             })
                           }
+                           {
+                            showYourChats && chats.length===0 && <motion.div initial={{y:-300 , opacity:0}} animate={{y:0,opacity:1}}className='text-black text-xl'>You Got No Chats</motion.div>
+                          }
+
 
 
                     </div>
@@ -284,7 +296,7 @@ onBlur={()=>{
                 
                       {
 
-                        currentChat===null ? (<div></div>) : (<>
+                        currentChat===null ? (<div className='w-[100%] h-[100%] flex flex-row justify-center items-center text-xl sm:text-xl md:text-2xl lg:text-2xl'> No Chat Selected To Preview </div>) : (<>
                   {/* chat conatiner */}
                 
         <ScrollableFeed forceScroll={true}>
