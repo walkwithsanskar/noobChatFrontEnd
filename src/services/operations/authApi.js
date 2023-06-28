@@ -83,6 +83,8 @@ export function logIn(loginData,navigate ){
                 dispatch(setLogin(true));
                 navigate("/home");
               
+            }else{
+                toast.dismiss(toastId);
             }
 
 
