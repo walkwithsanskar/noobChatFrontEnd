@@ -8,7 +8,8 @@ import {useNavigate} from "react-router-dom"
 import {BiLogOut} from "react-icons/bi"
 const NavBar = () => {
   const navigate = useNavigate();
-  const {token , Login} = useSelector((state)=>state.auth);
+  const {user,token , Login} = useSelector((state)=>state.auth);
+  
   
 
 
@@ -59,7 +60,7 @@ const NavBar = () => {
 
   return (
     <motion.div
-      className='flex flex-row justify-evenly h-max border-b-[1px] mt-2 border-b-blue-200'
+      className='flex flex-row  flex-wrap justify-evenly h-max border-b-[1px] mt-2 border-b-blue-200'
       variants={navVariant}
       initial='initial'
       animate='animate'
@@ -73,6 +74,13 @@ const NavBar = () => {
         Noob Chat
       </motion.span>
 
+          { 
+            Login && <motion.span  className='text-lg  self-center px-2 py-1 rounded-sm text-black  bg-blue-100  cursor-pointer flex flex-row gap-2 items-center hover:bg-slate-300'
+        variants={childVariant}
+        initial='initial'
+        animate='animate'>WelCome ! {user?.firstName}</motion.span>
+            
+          }
 
           {
 
@@ -83,6 +91,8 @@ const NavBar = () => {
  
 
           }
+
+
         </motion.div>
 
   );
