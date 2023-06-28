@@ -251,7 +251,7 @@ onBlur={()=>{
                     </div>
 
                     <div className='flex flex-col gap-2 mt-2 lg:max-h-fit md:max-h-fit sm:max-h-fit max-h-[150px] overflow-y-auto'>
-                          <span className='text-blue-100 flex flex-row items-center gap-2 cursor-pointer' onClick={()=>setShowYourChats(!showYourChats)} >Your Chats 
+                          <span className={`text-blue-100 flex flex-row items-center gap-2 cursor-pointer      ${showDiv?"mb-[100px]":"mb-[0px]"} `}  onClick={()=>setShowYourChats(!showYourChats)} >Your Chats 
 
                             {
                               showYourChats ? (<BsFillArrowUpCircleFill/>) : (<BsFillArrowDownCircleFill/>)
