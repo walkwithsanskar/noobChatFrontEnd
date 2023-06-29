@@ -323,7 +323,13 @@ onBlur={()=>{
 
                 <input type="text"  className='flex-grow  bg-transparent placeholder:text-black border-b border-b-gray-700 placeholder:text-lg focus:outline-none' value={message} onChange={(e)=> {   
                   
-                  setMessage(e.target.value)}}  required placeholder='type a message  '/>
+                  setMessage(e.target.value)}}  required placeholder='type a message  ' onKeyDown={(e)=>{
+                    
+                    if(e.key==="Enter"){
+                    sendHandler();
+
+                    }
+                    }}/>
 
                   <BsEmojiWinkFill className='self-center text-2xl' onClick={()=>setShowEmoji(!showEmoji)}></BsEmojiWinkFill>
 
